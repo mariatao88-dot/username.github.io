@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Larix.CDB</title>
+    <style>
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Background color tokens (Light Mode) */
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            --color-bg-7: rgba(236, 72, 153, 0.08);
+            --color-bg-8: rgba(6, 182, 212, 0.08);
+
+            /* Semantic Color Tokens (Light Mode) */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: #72BE70;
+            --color-primary-hover: #64A863;
+            --color-primary-active: #5A9158;
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(114, 190, 112, 0.4);
+
+            /* Typography */
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            /* Spacing */
+            --space-0: 0;
+            --space-1: 1px;
+            --space-2: 2px;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Layout */
+            --container-sm: 640px;
+            --container-md: 768px;
+            --container-lg: 1024px;
+            --container-xl: 1280px;
+        }
+
+        /* Dark mode colors */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+
+                --color-bg-1: rgba(29, 78, 216, 0.15);
+                --color-bg-2: rgba(180, 83, 9, 0.15);
+                --color-bg-3: rgba(21, 128, 61, 0.15);
+                --color-bg-4: rgba(185, 28, 28, 0.15);
+                --color-bg-5: rgba(107, 33, 168, 0.15);
+                --color-bg-6: rgba(194, 65, 12, 0.15);
+                --color-bg-7: rgba(190, 24, 93, 0.15);
+                --color-bg-8: rgba(8, 145, 178, 0.15);
+
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: #72BE70;
+                --color-primary-hover: #7BC579;
+                --color-primary-active: #85CC83;
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+                --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+                --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-focus-ring: rgba(114, 190, 112, 0.4);
+            }
+        }
+
+        @font-face {
+            font-family: 'FKGroteskNeue';
+            src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+        }
+
+        /* Base styles */
+        html {
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-lg);
+            margin: 0 auto;
+            padding: var(--space-24) var(--space-16);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: var(--space-32);
+        }
+
+        .header h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin: 0;
+            letter-spacing: var(--letter-spacing-tight);
+        }
+
+        .header p {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            margin: var(--space-16) 0 0 0;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: var(--space-32);
+        }
+
+        .faq-section-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            margin: 0 0 var(--space-16) 0;
+            padding-bottom: var(--space-8);
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        /* FAQ Item */
+        .faq-item {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--space-12);
+            overflow: hidden;
+            transition: box-shadow var(--duration-normal) var(--ease-standard);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        /* FAQ Question */
+        .faq-question {
+            padding: var(--space-16) var(--space-20);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-lg);
+            color: var(--color-text);
+            transition: background-color var(--duration-fast) var(--ease-standard);
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            background-color: var(--color-secondary);
+        }
+
+        .faq-question:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: -2px;
+        }
+
+        .faq-question-text {
+            flex: 1;
+            margin-right: var(--space-16);
+        }
+
+        /* FAQ Icon */
+        .faq-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--color-primary);
+            transition: transform var(--duration-normal) var(--ease-standard);
+            flex-shrink: 0;
+        }
+
+        .faq-icon.expanded {
+            transform: rotate(45deg);
+        }
+
+        /* FAQ Answer */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--duration-normal) var(--ease-standard), padding var(--duration-normal) var(--ease-standard);
+        }
+
+        .faq-answer.expanded {
+            max-height: 1000px;
+        }
+
+        .faq-answer-content {
+            padding: 0 var(--space-20) var(--space-16) var(--space-20);
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-normal);
+            border-top: 1px solid var(--color-card-border-inner);
+        }
+
+        .faq-answer-content p {
+            margin: var(--space-16) 0 0 0;
+        }
+
+        .faq-answer-content p:first-child {
+            margin-top: var(--space-16);
+        }
+
+        /* Strong text styling */
+        .faq-answer-content strong {
+            color: var(--color-text);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        /* List styling */
+        .faq-answer-content ul {
+            margin: var(--space-12) 0;
+            padding-left: var(--space-20);
+        }
+
+        .faq-answer-content li {
+            margin-bottom: var(--space-8);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-16);
+            }
+
+            .header h1 {
+                font-size: var(--font-size-3xl);
+            }
+
+            .header p {
+                font-size: var(--font-size-base);
+            }
+
+            .faq-section-title {
+                font-size: var(--font-size-xl);
+            }
+
+            .faq-question {
+                padding: var(--space-12) var(--space-16);
+                font-size: var(--font-size-base);
+            }
+
+            .faq-answer-content {
+                padding: 0 var(--space-16) var(--space-12) var(--space-16);
+            }
+
+            .faq-question-text {
+                margin-right: var(--space-12);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>FAQ Larix.CDB</h1>
+            <p>Часто задаваемые вопросы по работе с системой Larix.CDB</p>
+        </header>
+
+        <main>
+            <!-- Общие вопросы -->
+            <section class="faq-section">
+                <h2 class="faq-section-title">Общие вопросы</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Поддерживает ли Larix.CDB работу в оффлайн-режиме?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Нет. Larix.CDB — клиент-серверное приложение, требующее постоянного подключения к серверу БД. Работа без подключения невозможна.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Как обновить программу Larix.CDB?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Обновление выполняется вручную: удалите текущую версию через «Панель управления → Программы и компоненты», затем установите новую версию, полученную от администратора или техподдержки Larix. Настройки пользователя и данные Базы НСИ не удаляются при переустановке.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Где находятся лог-файлы программы?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Лог-файлы хранятся в сетевой папке, путь к которой задаётся администратором. Для быстрого доступа нажмите кнопку «Настройки» → «Открыть папку с логами» в области управления.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Возможно ли работать в однопользовательском или многопользовательском режиме?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Larix.CDB поддерживает только <strong>многопользовательский режим</strong> с централизованной базой данных. Однопользовательский (локальный) режим не предусмотрен. Все пользователи работают с одной Базой НСИ через сервер приложений, что обеспечивает согласованность данных и контроль версий.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Измерения -->
+            <section class="faq-section">
+                <h2 class="faq-section-title">Измерения</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Что такое Измерение в Larix.CDB?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Измерение — это срез данных Базы НСИ, в котором хранятся индивидуальные значения индикаторов (цен, норм времени и т.д.) для всех элементов. Вы можете создавать неограниченное количество измерений (например, «2025 Q1», «Проект X»), чтобы вести разные версии цен или норм в рамках одной базы. Все справочники (единицы измерения, статьи затрат) едины для всех измерений.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Работа с элементами и структурой -->
+            <section class="faq-section">
+                <h2 class="faq-section-title">Работа с элементами и структурой</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">В чём разница между калькулируемым и некалькулируемым элементом?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>Калькулируемый элемент</strong> — его цена и нормы автоматически рассчитываются на основе дочерних элементов (например, «Монолитные работы» = сумма бетона + арматуры + труда).</p>
+                            <p><strong>Некалькулируемый элемент</strong> — значения вводятся вручную (например, «Бетон В25» или «Армирование колонн»).</p>
+                            <p>Элементы последнего уровня иерархии (ресурсы) всегда некалькулируемые и не могут иметь дочерних записей.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Как создать новый элемент и прикрепить к нему дочерние записи?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>1. Откройте нужный Классификатор</p>
+                            <p>2. Нажмите «Создать» → заполните шифр, наименование, отметьте «Калькулируемый»</p>
+                            <p>3. Сохраните элемент</p>
+                            <p>4. В окне «Дочерние записи» нажмите «Прикрепить» → выберите измерения, элемент и укажите расход</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Можно ли удалить элемент, если у него есть дочерние записи?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Нет. Элемент нельзя удалить, пока у него есть дочерние или родительские связи. Сначала нужно открепить все связи через кнопку «Открепить». Удаление элемента происходит сквозь все измерения — нельзя удалить только из одного измерения.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Как работает копирование элемента?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>При копировании создаётся новый элемент с уникальным шифром. Копируются все дочерние связи, признак «Калькулируемый» и значения индикаторов — только в выбранных измерениях. Текущее измерение автоматически включено в список копирования и нельзя его отменить.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Интерфейс и навигация -->
+            <section class="faq-section">
+                <h2 class="faq-section-title">Интерфейс и навигация</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Как изменить порядок колонок в таблице?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Нажмите ПКМ по заголовку колонки → выберите «Выбор колонок» → перетащите поля в нужном порядке → нажмите «ОК». Если включена галочка «Сохранение внешнего вида», порядок сохранится после перезапуска.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Как быстро найти элемент по шифру или наименованию?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Нажмите ПКМ по заголовку колонки → выберите «Поиск» → введите текст. Все совпадения будут подсвечены жёлтым. Поиск работает только в текущей таблице.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Как сгруппировать записи по статье затрат или единице измерения?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Перетащите заголовок колонки на панель группировки (ПКМ → «Показать панель группировки»). Записи автоматически сгруппируются. Чтобы раскрыть все группы — нажмите «Раскрыть все» на панели.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Как открыть несколько окон рядом (не вкладками)?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Перетащите вкладку за её заголовок → появится навигационная панель с зонами → отпустите в нужную зону. На двух мониторах можно перетащить окно на второй экран — оно автоматически развернётся.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Почему некоторые кнопки в интерфейсе неактивны (серые)?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Причины:</p>
+                            <ul>
+                                <li>У вашей роли нет прав на это действие</li>
+                                <li>Действие недоступно в текущем контексте</li>
+                                <li>Вы работаете с некалькулируемым элементом, а кнопка относится к калькуляции</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Что означают серые (недоступные) поля при редактировании элемента?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Серым выделены поля, недоступные для редактирования, потому что это агрегированные индикаторы (у калькулируемых элементов), системные поля или поля, зависящие от других значений.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Импорт и экспорт данных -->
+            <section class="faq-section">
+                <h2 class="faq-section-title">Импорт и экспорт данных</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Как обновить цены в базе без ручного ввода?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Используйте экспорт/импорт через Excel:</p>
+                            <p>1. «Экспорт → Стандартный (актуализация цен)» → сохраните файл</p>
+                            <p>2. Обновите цены в колонках Индикаторов (только в незащищённых ячейках)</p>
+                            <p>3. «Импорт → Актуализация данных» → выберите обновлённый файл</p>
+                            <p>Изменения применятся только в текущем измерении.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ролевая модель -->
+            <section class="faq-section">
+                <h2 class="faq-section-title">Ролевая модель</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Какие права у моей роли?</span>
+                        <svg class="faq-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Права зависят от вашей роли (назначается в Larix.ACS):</p>
+                            <ul>
+                                <li><strong>Руководитель</strong>: полный доступ ко всем разделам</li>
+                                <li><strong>Специалист</strong>: редактирование Справочников, Элементов, Измерений; импорт и экспорт с индикаторами</li>
+                                <li><strong>Мониторщик</strong>: только просмотр и экспорт с индикаторами; импорт разрешён</li>
+                                <li><strong>ПТО / Планировщик</strong>: просмотр, импорт, экспорт без индикаторов</li>
+                            </ul>
+                            <p>Просмотр всех данных доступен всем ролям.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // FAQ functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.closest('.faq-item');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const icon = this.querySelector('.faq-icon');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Toggle the answer
+                    if (isExpanded) {
+                        // Close the answer
+                        answer.classList.remove('expanded');
+                        icon.classList.remove('expanded');
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        // Open the answer
+                        answer.classList.add('expanded');
+                        icon.classList.add('expanded');
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+                
+                // Handle keyboard navigation
+                question.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
